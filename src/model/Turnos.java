@@ -5,16 +5,18 @@ import enums.Estado;
 import java.util.Date;
 
 public class Turnos {
+  private static int idContador=0;
   private int id;
   private Date fecha;
   private Estado estado;
   private Mascota mascota;
 
-  public Turnos(int id, Date fecha, Estado estado, Mascota mascota) {
-    this.id= id;
+  public Turnos(Date fecha, Estado estado, Mascota mascota) {
+    this.idContador= idContador + 1;
     this.fecha = fecha;
     this.estado = estado;
     this.mascota= mascota;
+    Turnos.idContador = idContador + 1;
   }
 
   public int getId(){return this.id;}
@@ -40,7 +42,7 @@ public class Turnos {
     return ":" + id + "\n" +
             "Fecha " + fecha + "\n" +
             "Estado" + estado + "\n" +
-            "Mascota" + mascota + "\n";
+            "Mascota" + mascota.getNombre() + "\n";
 
   }
 

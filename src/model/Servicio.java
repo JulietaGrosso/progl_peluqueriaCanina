@@ -4,6 +4,7 @@ import enums.Tiposervicio;
 
 public class Servicio {
 
+  private static int idContador=0;
   private int id;
   private Tiposervicio tipoServicio;
   private String descripcion;
@@ -13,13 +14,14 @@ public class Servicio {
 
 
 
-  public Servicio(int id, Tiposervicio tipoServicio, String descripcion, double duracion, int precio, Turnos turno) {
-    this.id=id;
+  public Servicio(Tiposervicio tipoServicio, String descripcion, double duracion, int precio, Turnos turno) {
+    this.idContador=idContador + 1;
     this.tipoServicio = tipoServicio;
     this.descripcion = descripcion;
     this.duracion = duracion;
     this.precio= precio;
     this.turno=turno;
+    Servicio.idContador=Servicio.idContador+1;
   }
 
   public int getId(){return this.id;}
@@ -59,7 +61,7 @@ public class Servicio {
             "descripción" + descripcion + "\n" +
             "duración" + duracion + "\n" +
             "precio" + precio + "\n" +
-            "Turno" + turno + "\n";
+            "Turno" + turno.getEstado() + "\n";
 
   }
 
